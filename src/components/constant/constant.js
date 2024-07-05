@@ -7,7 +7,7 @@ function formatDuration(seconds) {
 }
 
 
-// Function to add duration to each item in data
+
 export async function addDuration(data) {
     const promises = data.map(async (item) => {
         try {
@@ -18,18 +18,18 @@ export async function addDuration(data) {
                 });
                 audio.addEventListener('error', (error) => {
                     console.error('Error loading audio:', error);
-                    resolve(0); // Fallback duration in case of error
+                    resolve(0); 
                 });
             });
 
             item.duration = formatDuration(duration);
         } catch (error) {
             console.error('Error processing audio:', error);
-            item.duration = '0:00'; // Handle errors while fetching duration
+            item.duration = '0:00'; 
         }
         return item;
     });
 
-    // Wait for all promises to resolve
+
     return await Promise.all(promises);
 }

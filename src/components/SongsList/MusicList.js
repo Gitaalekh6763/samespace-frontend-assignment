@@ -129,7 +129,7 @@ function MusicList({ allData, setAllData, topData, setTopData, data, setMusic, s
                                 cursor: 'pointer',
                                 '&:hover': {
                                     backgroundColor: lighten(0.2, color),
-                                    borderRadius:'7px' // Change the color as needed
+                                    borderRadius:'7px' 
                                 },
                             }}
                         >

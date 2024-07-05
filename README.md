@@ -1,3 +1,3 @@
 # samespace-frontend-assignment
 
-Vercel Link : https://samespace-assigment.vercel.app/
+Vercel Link : https://samespace-frontend-assignment.vercel.app/
