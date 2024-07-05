@@ -23,13 +23,26 @@ const Player = ({ imageUrl, mp3Url, setMusic, music, backgroundColor, track, han
     const [duration, setDuration] = useState(0);
     const [audioMuted, setAudioMuted] = useState(false);
     const audioRef = useRef(null);
-    const isSmallScreen = useMediaQuery('(max-width: 960px)'); // Adjust the breakpoint as needed
+    const isSmallScreen = useMediaQuery('(max-width: 960px)'); 
+
+    const [src, setSrc] = useState(`https://cms.samespace.com/assets/${imageUrl}`);
+    const [opacity, setOpacity] = useState(1);
+
+    useEffect(() => {
+        setOpacity(0); 
+        const timeout = setTimeout(() => {
+        setSrc(`https://cms.samespace.com/assets/${imageUrl}`);
+        setOpacity(1); 
+    }, 500); 
+
+    return () => clearTimeout(timeout); 
+  }, [imageUrl]);
 
     useEffect(() => {
         const audio = audioRef.current;
-        audio.src = mp3Url; // Set mp3Url to audio element's src attribute
+        audio.src = mp3Url; 
         audio.play().then(() => {
-            setIsPlaying(true); // Set isPlaying state to true after audio starts playing
+            setIsPlaying(true); 
         }).catch((error) => {
             console.error('Failed to start audio playback:', error);
         });
@@ -74,14 +87,14 @@ const Player = ({ imageUrl, mp3Url, setMusic, music, backgroundColor, track, han
         const nextMusic = music === 4 ? 7 : music === 10 ? 1 : music + 1;
         setMusic(nextMusic);
         handleColor(music)
-        setIsPlaying(true); // Start playing the next song automatically
+        setIsPlaying(true); 
     };
 
     const handlePrevious = () => {
         const previousMusic = music === 7 ? 4 : music === 1 ? 10 : music - 1;
         setMusic(previousMusic);
         handleColor(music)
-        setIsPlaying(true); // Start playing the previous song automatically
+        setIsPlaying(true); 
     };
 
     const toggleMute = () => {
@@ -99,7 +112,7 @@ const Player = ({ imageUrl, mp3Url, setMusic, music, backgroundColor, track, han
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                
+                transition: 'background-color 1s ease',
                 alignItems: isSmallScreen ? 'center' : 'flex-start',
                 height: isSmallScreen ? 'auto' : '100vh',
                 backgroundColor,
@@ -131,9 +144,12 @@ const Player = ({ imageUrl, mp3Url, setMusic, music, backgroundColor, track, han
                     sx={{
                         width: '100%',
                         height: '100%',
-                        objectFit: 'cover'
+                        objectFit: 'cover',
+                        transition: 'opacity 1s ease',
+                        opacity: opacity,
+                        
                     }}
-                    src={`https://cms.samespace.com/assets/${imageUrl}`}
+                    src={src}
                     alt="Song cover"
                 />
             </Box>

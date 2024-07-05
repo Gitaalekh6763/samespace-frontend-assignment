@@ -73,7 +73,7 @@ function App() {
   }, []);
 
   return (
-    <Grid container justifyContent="space-between" spacing={2} sx={{ backgroundColor: color, height: '100vh', margin: 0, overflow: 'hidden' }}>
+    <Grid container justifyContent="space-between" spacing={2} sx={{ backgroundColor: color,transition:'background-color 1s ease', height: '100vh', margin: 0, overflow: 'hidden' }}>
       {!isSmallScreen && (
         <Grid item md={3} marginTop='-20px'>
           <Sidebar img={spotify} />

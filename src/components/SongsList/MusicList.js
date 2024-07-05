@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Typography, Input } from '@mui/material';
+import { Grid, Typography, Input, Box, Avatar} from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
-import { Avatar } from '@mui/material';
-import { Box } from '@mui/material';
+// import { Avatar } from '@mui/material';
+// import { Box } from '@mui/material';
 import { lighten } from 'polished';
 
 
@@ -52,6 +52,7 @@ function MusicList({ allData, setAllData, topData, setTopData, data, setMusic, s
                     marginBottom: 2,
                     borderRadius: '7px',
                     background: lighten(0.2, color),
+                    transition: 'background-color 1s ease',
                     color: 'white',
                     '& .MuiInputBase-input': {
                         color: 'white'
@@ -87,11 +88,13 @@ function MusicList({ allData, setAllData, topData, setTopData, data, setMusic, s
                                 '&:hover': {
                                     borderRadius: '7px',
                                     backgroundColor: lighten(0.2,color),
+                                    transition: 'background-color 0.5s ease',
                                     width:'100%',
                                     overflow:'hidden' // Change the color as needed
                                 },
                             }}
                         >
+                            
                             <Grid container flex justifyContent="flex-start">
                                 <Grid item  >
                                     <Box >
@@ -111,6 +114,7 @@ function MusicList({ allData, setAllData, topData, setTopData, data, setMusic, s
                                     </Grid>
                                 </Grid>
                             </Grid>
+                            
                         </Grid>
                     ))) : (topData.map(track => (
                         <Grid
