@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Sidebar from './components/SideBar/Sidebar';
 import Player from './components/SongPlayer/Player';
 import MusicList from './components/SongsList/MusicList';
-import spotify from './spotify.png';
+import spotify from './public/spotify.png';
 import { SONGS_API } from './components/constant/constant';
 import { addDuration } from './components/constant/constant';
 
