@@ -93,7 +93,7 @@ function App() {
             <MenuIcon sx={{ color: 'white' }} />
           </IconButton>
           <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-            <Box sx={{ width: 250, backgroundColor: color, height: '100%', padding:'3px' }}>
+            <Box sx={{ width: 250, backgroundColor: color, transition:'background-color 1s ease', height: '100%', padding:'3px' }}>
               <MusicList allData={allData} data={data} topData={topData} setAllData={setAllData} setTopData={setTopData} setMusic={setMusic} setColor={setColor} color={color} />
             </Box>
           </Drawer>
