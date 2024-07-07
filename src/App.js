@@ -73,14 +73,14 @@ function App() {
   }, []);
 
   return (
-    <Grid container justifyContent="space-between" spacing={2} sx={{ backgroundColor: color,transition:'background-color 1s ease', height: '100vh', margin: 0, overflow: 'hidden' }}>
+    <Grid container justifyContent="space-between" spacing={2} sx={{ backgroundColor: color,transition:'background-color 1s ease', margin: 0 }}>
       {!isSmallScreen && (
         <Grid item md={3} marginTop='-20px'>
           <Sidebar img={spotify} />
         </Grid>
       )}
       {!isSmallScreen && (
-        <Grid item md={4}>
+        <Grid item md={4} sx={{ backgroundColor: color,transition:'background-color 1s ease'}}>
           <MusicList allData={allData} data={data} topData={topData} setAllData={setAllData} setTopData={setTopData} setMusic={setMusic} setColor={setColor} color={color} />
         </Grid>
       )}

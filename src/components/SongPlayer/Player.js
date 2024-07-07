@@ -111,7 +111,7 @@ const Player = ({ imageUrl, mp3Url, setMusic, music, backgroundColor, track, han
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center',
+                // justifyContent: 'center',
                 transition: 'background-color 1s ease',
                 alignItems: isSmallScreen ? 'center' : 'flex-start',
                 height: isSmallScreen ? 'auto' : '100vh',
